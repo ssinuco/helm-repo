@@ -12,6 +12,7 @@ metadata:
     {{- range $key, $value := .Values.ingress.annotations }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
     {{- if .Values.ingress.hostName }}
